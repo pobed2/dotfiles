@@ -1,0 +1,7 @@
+[editor]
+    command = "code"
+    args = ["--wait"]
+
+[visual]
+    command = "code"
+    args = ["--wait"]
