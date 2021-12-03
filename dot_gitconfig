@@ -1,0 +1,6 @@
+[user]
+	name = Pierre-Olivier Bédard
+	email = pobed2@gmail.com
+
+[alias]
+	sq = reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
