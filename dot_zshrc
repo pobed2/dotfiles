@@ -1,1 +1,33 @@
+# Setup zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "rupa/z", use:"z.sh"
+zplug "chriskempson/base16-shell", use:"scripts/base16-ocean.sh"
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Lots of history
+export HISTSIZE=1000000000
+export SAVEHIST="${HISTSIZE}"
+
+# Editor
 export EDITOR=code
+
+# Dev
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+# Prompt
+#autoload -Uz vcs_info
+#precmd_functions+=( vcs_info )
+#setopt prompt_subst
+
+#zstyle ':vcs_info:git:*' check-for-changes true
+#zstyle ':vcs_info:*' unstagedstr '*'
+#zstyle ':vcs_info:*' stagedstr '+'
+#zstyle ':vcs_info:git:*' formats '%F{200}[%b%u%c]%f'
+#zstyle ':vcs_info:*' enable git
+
+# PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%~%b $vcs_info_msg_0_ $ '
