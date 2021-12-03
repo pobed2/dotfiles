@@ -1,16 +1,20 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+# Install brews
+brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "homebrew/core"
 tap "homebrew/bundle"
 tap "homebrew/services"
 
-cask "1password"
-cask "google-chrome"
-cask "iterm2"
+#cask "1password"
+#cask "google-chrome"
+#cask "iterm2"
 cask "macdown"
 cask "sizeup"
-cask "slack"
+#cask "slack"
 cask "sublime-text"
 cask "visual-studio-code"
-cask "vlc"
 
 brew "chezmoi"
 brew "colordiff"
@@ -22,3 +26,6 @@ brew "node"
 brew "tree"
 brew "yarn"
 brew "zplug"
+EOF
+
+{{ end -}}

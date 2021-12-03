@@ -2,12 +2,13 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-zplug "rupa/z", use:"z.sh"
-zplug "chriskempson/base16-shell", use:"scripts/base16-ocean.sh"
+zplug "rupa/z", use:"z.sh", from:github
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+zplug load
 
 # Lots of history
 export HISTSIZE=1000000000

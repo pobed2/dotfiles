@@ -1,0 +1,24 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/bin/bash
+
+echo "[Step 1] Install programs"
+
+while fuser /var/{lib/{dpkg,apt/lists},cache/apt/archives}/lock > /dev/null 2>&1 ; do
+	echo "Waiting for lock on apt-get to be released"
+	sleep 1
+done
+sudo apt-get update
+
+# Additional downloads
+sudo mkdir -p /usr/local/opt
+sudo chmod a+w /usr/local/opt
+
+# Install zplug for linux system
+export ZPLUG_HOME="/usr/local/opt/zplug"
+git clone https://github.com/zplug/zplug.git /usr/local/opt/zplug
+
+# Install diff-so-fancy for linux systems
+git clone https://github.com/so-fancy/diff-so-fancy.git /usr/local/opt/diff-so-fancy
+sudo ln -s /usr/local/opt/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
+
+{{ end -}}
