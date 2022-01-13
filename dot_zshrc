@@ -4,8 +4,12 @@ if [ $SPIN ]; then
 fi
 
 # Setup zplug
-[[ -x /usr/local/bin/brew ]] && export ZPLUG_HOME=$(brew --prefix)/opt/zplug  # MacOS
-[[ -x /usr/local/bin/brew ]] || export ZPLUG_HOME=/usr/local/opt/zplug  # Spin
+if [ -x "$(command -v brew)" ]
+then
+  export ZPLUG_HOME=$(brew --prefix)/opt/zplug  # MacOS
+else
+  export ZPLUG_HOME=/usr/local/opt/zplug  # Spin
+fi
 source $ZPLUG_HOME/init.zsh
 
 zplug "rupa/z", use:"z.sh", from:github
