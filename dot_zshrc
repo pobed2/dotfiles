@@ -1,6 +1,10 @@
 # Spin specific config
 if [ $SPIN ]; then
   source /etc/zsh/zshrc.default.inc.zsh
+
+  # Override formats from default .zsh for compatibility with pure prompt
+  zstyle ':vcs_info:git:*' formats '%b' '%R' '%a'
+  zstyle ':vcs_info:git:*' actionformats '%b' '%R' '%a'
 fi
 
 # Setup zplug
